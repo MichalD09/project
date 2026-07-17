@@ -9,7 +9,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'michald09/project'
-        DOCKER_CREDENTIALS_ID = 'gitpass'
+        DOCKER_CREDENTIALS_ID = 'michald'
         CONTAINER_NAME = 'project'
         APP_PORT = '5000'
     }
