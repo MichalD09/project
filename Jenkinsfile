@@ -33,16 +33,16 @@ pipeline {
             }
         }
 
-       stage('Test') {
+    stage('Test') {
     steps {
-        echo 'Instalacja zaleznosci i uruchomienie testow...'
+        echo 'Uruchomienie testow w kontenerze Python...'
 
         sh '''
-            python3 -m venv .venv
-            . .venv/bin/activate
-            python -m pip install --upgrade pip
-            python -m pip install -r requirements.txt
-            python -m pytest
+            docker run --rm \
+                -v "$PWD:/app" \
+                -w /app \
+                python:3.12-slim \
+                sh -c "pip install -r requirements.txt && pytest"
         '''
     }
 }
