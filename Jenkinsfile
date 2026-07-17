@@ -9,7 +9,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = 'michald09/project'
-        DOCKER_CREDENTIALS_ID = 'demo'
+        DOCKER_CREDENTIALS_ID = 'MichalD'
         CONTAINER_NAME = 'project'
         APP_PORT = '5000'
     }
