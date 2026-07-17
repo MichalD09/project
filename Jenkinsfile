@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        label 'slave01-new'
+    }
+
+    options {
+        skipDefaultCheckout(true)
+    }
 
     environment {
         DOCKER_IMAGE = 'michald09/project'
@@ -32,8 +38,11 @@ pipeline {
                 echo 'Instalacja zaleznosci i uruchomienie testow...'
 
                 sh '''
-                    pip install -r requirements.txt
-                    pytest
+                    python3 -m venv .venv
+                    . .venv/bin/activate
+                    python -m pip install --upgrade pip
+                    python -m pip install -r requirements.txt
+                    python -m pytest
                 '''
             }
         }
