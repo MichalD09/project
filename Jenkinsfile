@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'twoj-login-dockerhub/simple-cicd-app'
+        DOCKER_IMAGE = 'michald09/project'
         DOCKER_CREDENTIALS_ID = 'dockerhub-token'
         CONTAINER_NAME = 'simple-cicd-app-test'
         APP_PORT = '5000'
